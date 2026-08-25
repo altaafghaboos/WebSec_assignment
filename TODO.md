@@ -1,6 +1,6 @@
 1. ~~Business Scenario~~
 2. ~~Functional Requirements~~
- * Functional requirements document completed and updated
+3. Functional requirements document completed and updated
 4. Use Case diagrams
 5. Flowchart
 6. DB design
