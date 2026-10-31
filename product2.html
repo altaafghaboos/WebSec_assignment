@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Beauty - Shop</title>
+    <style>
+        /* BASE & RESET STYLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #222222;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 0.85rem;
+        }
+
+        .login-btn {
+            background-color: #000000;
+            color: #ffffff !important;
+            padding: 6px 18px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        /* HERO BANNER */
+        .hero {
+            height: 280px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                        url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 950px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* PRODUCT ROWS */
+        .product-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .product-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 220px;
+            height: auto;
+        }
+
+        /* LIGHT BLUE CARD CONTAINER (FOR D'ALBA) */
+        .blue-bg-card {
+            background-color: #f0f7f8;
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .blue-bg-card img {
+            max-width: 140px;
+        }
+
+        /* TYPOGRAPHY */
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #222222;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .product-desc {
+            font-size: 0.78rem;
+            color: #777777;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #d92525;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .vat {
+            font-size: 0.7rem;
+            color: #999999;
+            margin-bottom: 15px;
+        }
+
+        /* QUANTITY BAR (MATCHING FIGMA GREY BLOCK) */
+        .quantity-control {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #777777;
+            background-color: #dcdcdc;
+            margin-bottom: 15px;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            width: 32px;
+            height: 32px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .qty-label {
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 0 15px;
+            color: #333333;
+            text-transform: uppercase;
+        }
+
+        /* BUTTONS */
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 9px 18px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-buy-now {
+            background-color: #e52828;
+            color: #ffffff;
+            border: 1px solid #e52828;
+        }
+
+        .btn-add-cart {
+            background-color: #ffffff;
+            color: #e52828;
+            border: 1px solid #e52828;
+        }
+
+        /* TWO COLUMN GRID SECTION */
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        /* FOOTER (PEACH BACKGROUND) */
+        footer {
+            background-color: #f4c4b7;
+            color: #333333;
+            padding: 40px 60px;
+            margin-top: 80px;
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+
+        .footer-container {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-left h4 {
+            margin-bottom: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">Bloom Beauty</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Products</a>
+            <a href="#" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero">
+        <h1>SHOP</h1>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <!-- Product 1: MOEV -->
+        <div class="product-row">
+            <div class="product-details">
+                <h2 class="product-title">MOEV SCALP CLARIFYING SHAMPOO 500ml</h2>
+                <p class="product-desc">
+                    Removes excess oil and buildup for a cleaner, lighter scalp without stripping natural moisture or leaving tightness. Helps reduce the appearance of visible flakes while maintaining scalp balance with a mildly acidic pH formula. Leaves scalp feeling hydrated, refreshed, and comfortable after every wash. Suitable for all hair types seeking clarifying care with a lightweight, fresh finish.
+                </p>
+                <div class="price">Rs 1,450.00</div>
+                <div class="vat">VAT included</div>
+
+                <div class="quantity-control">
+                    <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                    <span class="qty-label">QUANTITY <span class="qty-num">1</span></span>
+                    <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-buy-now">BUY IT NOW</button>
+                    <button class="btn btn-add-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <div class="product-image">
+                <img src="https://via.placeholder.com/220x260/ffffff/a82323?text=moev" alt="MOEV Shampoo">
+            </div>
+        </div>
+
+        <!-- Product 2: HETRAS -->
+        <div class="product-row reverse">
+            <div class="product-details">
+                <h2 class="product-title">HETRAS SIMKONG ANTI-HAIR LOSS SHAMPOO - FLOWERSHOP 1,013ML</h2>
+                <p class="product-desc">
+                    Gently cleanses the scalp while helping to strengthen weakened hair and reduce excess sebum that can contribute to hair thinning. Enriched with nourishing ingredients to support a healthy scalp environment, leaving hair feeling refreshed and more resilient. Delivers a luxurious Bombshell fragrance with every wash, making daily hair care a sensorial experience.
+                </p>
+                <div class="price">Rs 1,800.00</div>
+                <div class="vat">VAT included</div>
+
+                <div class="quantity-control">
+                    <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                    <span class="qty-label">QUANTITY <span class="qty-num">1</span></span>
+                    <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-buy-now">BUY IT NOW</button>
+                    <button class="btn btn-add-cart">ADD TO CART</button>
+                </div>
+            </div>
+
+            <div class="product-image">
+                <img src="https://via.placeholder.com/200x260/2c201d/ffffff?text=Hetras+96%25" alt="Hetras Shampoo">
+            </div>
+        </div>
+
+        <!-- Grid Section for D'Alba & Tsubaki Products -->
+        <div class="grid-section">
+
+            <!-- Left Item: D'Alba -->
+            <div>
+                <div class="blue-bg-card">
+                    <img src="https://via.placeholder.com/120x220/ffffff/d4af37?text=d'Alba" alt="d'Alba Serum Shampoo">
+                </div>
+                <div style="margin-top: 15px;">
+                    <h2 class="product-title">D'ALBA PROFESSIONAL REPAIRING SCALP THERAPY SERUM SHAMPOO 275ML</h2>
+                    <p class="product-desc">A repairing shampoo for scalp and hair, designed for gentle cleansing, hydration, and a smoother-looking finish through the lengths.</p>
+                    <div class="price">Rs 850.00</div>
+                    <div class="vat">VAT included</div>
+
+                    <div class="quantity-control">
+                        <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                        <span class="qty-label">QUANTITY <span class="qty-num">1</span></span>
+                        <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn btn-buy-now">BUY IT NOW</button>
+                        <button class="btn btn-add-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Tsubaki Items -->
+            <div>
+                <!-- Tsubaki Volume -->
+                <div style="margin-bottom: 40px; text-align: right;">
+                    <img src="https://via.placeholder.com/100x160/ffffff/d4af37?text=Tsubaki" alt="Tsubaki Volume Conditioner" style="margin-bottom: 10px;">
+                    <h2 class="product-title">TSUBAKI PREMIUM VOLUME & REPAIR CONDITIONER 450ML</h2>
+                    <div class="price">Rs 1,350.00</div>
+                    <div class="vat">VAT included</div>
+
+                    <div class="quantity-control">
+                        <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                        <span class="qty-label">QUANTITY <span class="qty-num">1</span></span>
+                        <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                    </div>
+
+                    <div class="button-group" style="justify-content: flex-end;">
+                        <button class="btn btn-buy-now">BUY IT NOW</button>
+                        <button class="btn btn-add-cart">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Tsubaki EX Damage -->
+                <div style="text-align: right;">
+                    <img src="https://via.placeholder.com/100x160/111111/ffffff?text=Tsubaki+EX" alt="Tsubaki EX Conditioner" style="margin-bottom: 10px;">
+                    <h2 class="product-title">TSUBAKI PREMIUM EX DAMAGE CARE & REPAIR CONDITIONER (450ML)</h2>
+                    <div class="price">Rs 1,350.00</div>
+                    <div class="vat">VAT included</div>
+
+                    <div class="quantity-control">
+                        <button class="qty-btn" onclick="updateQty(this, -1)">-</button>
+                        <span class="qty-label">QUANTITY <span class="qty-num">1</span></span>
+                        <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                    </div>
+
+                    <div class="button-group" style="justify-content: flex-end;">
+                        <button class="btn btn-buy-now">BUY IT NOW</button>
+                        <button class="btn btn-add-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>Follow us</h4>
+                <div class="social-icons">🌐 📷 👤</div>
+            </div>
+
+            <div class="footer-right">
+                <p>Reduit, 80837</p>
+                <p>+230 574 7314</p>
+                <p>+230 575 2281</p>
+                <p style="margin-top: 8px;"><strong>Opening & closing time:</strong></p>
+                <p>Monday, Wednesday & Saturday: 09h00 - 17h00</p>
+                <p>Tuesday, Thursday & Friday: 07h30 - 18h00</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Quantity Script -->
+    <script>
+        function updateQty(btn, change) {
+            const container = btn.closest('.quantity-control');
+            const qtyNum = container.querySelector('.qty-num');
+            let current = parseInt(qtyNum.textContent) || 1;
+            current += change;
+            if (current < 1) current = 1;
+            qtyNum.textContent = current;
+        }
+    </script>
+</body>
+</html>
