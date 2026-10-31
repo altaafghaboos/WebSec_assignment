@@ -1,21 +1,21 @@
 <?php
 
 // configuration of the database
-$host		= 'localhost';
-$dbname		= 'beauty_salon_booking_system';
-$username	= 'root';
-$password	= '';
-$charset	= 'utf8mb4'
+$host		= "localhost";
+$dbname		= "beauty_salon_booking_system";
+$username	= "root";
+$password	= "";
+$charset	= "utf8mb4";
 
 // dsn setup
 // tells pdo which db to use and where to find it
-$dsn = 'mysql:host=$host;dbname=$dbname;charset=$charset';
+$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
 
 $options = [
 
 	//allows the throwing of exceptions
-	PDO::ATRR_ERRMODE				=> PDO::ERRMODE_EXCEPTION,
+	PDO::ATTR_ERRMODE				=> PDO::ERRMODE_EXCEPTION,
 
 	//ensures that db results are returned as associative arrays, i.e. names of columns instead of column number
 	PDO::ATTR_DEFAULT_FETCH_MODE	=> PDO::FETCH_ASSOC,
