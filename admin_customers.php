@@ -187,7 +187,7 @@ $customers = $stmt->fetchAll();
 
 		<h3>Add New Custoemr</h3>
 
-		<form method="POST" action="customers.php">
+		<form method="POST" action="admin_customers.php">
 
 			<div class="form-row">
 				<div class="form-group">
@@ -252,7 +252,7 @@ $customers = $stmt->fetchAll();
 					<?php if ($edit_id == $c['customer_id']): ?>
 						
 						<!-- EDIT MODE ROW -->
-						<form method="POST" action="customers.php">
+						<form method="POST" action="admin_customers.php">
                             <td><?= $c['customer_id'] ?></td>
                             <td>
 								<!-- customer_id made hidden so that is cannot be edited (is primary key) -->
@@ -282,7 +282,7 @@ $customers = $stmt->fetchAll();
                             </td>
                             <td>
                                 <button type="submit" name="update_customer" class="btn btn-save">Save</button>
-                                <a href="customers.php" class="btn btn-cancel">Cancel</a>
+                                <a href="admin_customers.php" class="btn btn-cancel">Cancel</a>
                             </td>
                         </form>
 
@@ -302,9 +302,9 @@ $customers = $stmt->fetchAll();
                         </td>
                         <td>
 							<!-- link to click if selected customer is to be edited -->
-                            <a href="customers.php?edit=<?= $c['customer_id'] ?>" class="btn btn-edit">Edit</a>
+                            <a href="admin_customers.php?edit=<?= $c['customer_id'] ?>" class="btn btn-edit">Edit</a>
 							<!-- link to click if selected customer is to be deleted -->
-                            <a href="customers.php?delete=<?= $c['customer_id'] ?>" 
+                            <a href="admin_customers.php?delete=<?= $c['customer_id'] ?>" 
                                class="btn btn-delete" 
 								<?php /*safety prompt to confirm if record is to be deleted*/?>
                                onclick="return confirm('Delete this customer?');">Delete</a>
