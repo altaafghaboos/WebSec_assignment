@@ -1,9 +1,10 @@
 <?php
 
 //imports the db
-require "db.php"
+require "db.php";
 
-//
+$message = null;
+$error = null;
 $edit_id = $_GET["edit"] ?? null;
 
 //code to add new customer
@@ -109,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_customer'])) {
 			$error = "Error updating customer: " . $e->getMessage();
 		}
 	} else {
-		$error = "Required fields cannot be empty."
+		$error = "Required fields cannot be empty.";
 	}
 }
 
@@ -171,13 +172,12 @@ $customers = $stmt->fetchAll();
 
 	<h2>Customer Management</h2>
 
-	//displaying message	
+	<!-- displaying message -->	
 	<?php if ($message): ?>
-		<div class="alert-success"><?= htmlspecialchars($message) ?></div> //escapes special characters against XSS
+		<div class="alert-success"><?= htmlspecialchars($message) /*escapes special characters against XSS*/ ?></div> 
 	<?php endif; ?>
 
-	//displaying error message
-	<?php if ($error): ?>
+	<?php if ($error): /*displaying error message*/?>
 		<div class="alert-error"><?= htmlspecialchars($error) ?></div>
 	<?php endif; ?>
 
@@ -255,7 +255,7 @@ $customers = $stmt->fetchAll();
 						<form method="POST" action="customers.php">
                             <td><?= $c['customer_id'] ?></td>
                             <td>
-								//customer_id made hidden so that is cannot be edited (is primary key)
+								<!-- customer_id made hidden so that is cannot be edited (is primary key) -->
                                 <input type="hidden" name="customer_id" value="<?= $c['customer_id'] ?>">
                                 <input type="text" name="first_name" value="<?= htmlspecialchars($c['first_name']) ?>" required>
                             </td>
@@ -295,18 +295,18 @@ $customers = $stmt->fetchAll();
                         <td><?= htmlspecialchars($c['phone']) ?></td>
                         <td><?= htmlspecialchars($c['address'] ?? '-') ?></td>
                         <td>
-							//renders the lettering different depending on account status
+							<!-- renders the lettering different depending on account status -->
                             <span class="badge bg-<?= $c['account_status'] ?>">
                                 <?= $c['account_status'] ?>
                             </span>
                         </td>
                         <td>
-							//link to click if selected customer is to be edited
+							<!-- link to click if selected customer is to be edited -->
                             <a href="customers.php?edit=<?= $c['customer_id'] ?>" class="btn btn-edit">Edit</a>
-							//link to click if selected customer is to be deleted
+							<!-- link to click if selected customer is to be deleted -->
                             <a href="customers.php?delete=<?= $c['customer_id'] ?>" 
                                class="btn btn-delete" 
-								//safety prompt to confirm if record is to be deleted
+								<?php /*safety prompt to confirm if record is to be deleted*/?>
                                onclick="return confirm('Delete this customer?');">Delete</a>
                         </td>
 					<?php endif; ?>
