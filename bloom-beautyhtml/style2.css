@@ -1,0 +1,248 @@
+/* All services */
+:root {
+  --primary-pink: #dd6b7b;
+  --footer-bg: #f8c8be;
+  --text-dark: #1a1a1a;
+  --font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  background-color: #ffffff;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  font-weight: 700;
+}
+
+.nav-links a.btn-login {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+
+.brand-logo-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 0 20px 0;
+}
+
+.brand-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 220px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.divider-line {
+  width: 70%;
+  max-width: 900px;
+  height: 1px;
+  background-color: #e5b4b0;
+  margin: 0 auto;
+}
+
+.services-categories-section {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category-banner {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden; 
+  text-decoration: none;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.banner-overlay h2 {
+  color: #ffffff !important;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  margin: 0;
+}
+
+/* Hover Zoom Effect */
+.category-banner:hover .banner-bg {
+  transform: scale(1.05);
+}
+
+.category-banner:hover .banner-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.content-divider {
+  width: 70%;
+  max-width: 900px;
+  height: 1px;
+  background-color: #e5b4b0;
+  margin: 50px auto 0;
+}
+
+.site-footer {
+  background-color: var(--footer-bg);
+  padding: 50px 80px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.social-icons-group {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+.footer-right {
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.footer-right .address {
+  margin-bottom: 8px;
+}
+
+.footer-right .schedule-title {
+  margin-top: 12px;
+}
+
+.footer-right .schedule-spacing {
+  margin-top: 8px;
+}
+.brand-sub-section {
+  text-align: center;
+  padding: 35px 20px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brand-logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.center-brand-logo {
+  display: block;
+  max-width: 240px;  /* Adjust size to match your design */
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .site-header,
+  .services-categories-section,
+  .site-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .category-banner {
+    height: 180px;
+  }
+
+  .banner-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
