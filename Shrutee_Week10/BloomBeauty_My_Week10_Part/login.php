@@ -1,0 +1,1 @@
+<?php require_once 'partials.php';header_html('Bloom Beauty | Customer login');?><main class="inner"><h1>Customer login</h1><p>The group login feature is not implemented in this individual module.</p><a class="button" href="index.php">Back to Home</a></main><?php footer_html();?>
