@@ -195,6 +195,11 @@ $customers = $stmt->fetchAll();
                     </select>
                 </div>
 			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label>Job Title *</label>
+					<input type="text" name="first_name" required>
+				</div>
             <button type="submit" name="create_staff" class="btn btn-add">Add Staff</button>
 		</form>
 	</div>
