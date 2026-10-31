@@ -1,0 +1,1 @@
+<?php require_once 'partials.php';header_html('Bloom Beauty | Appointment booking');?><main class="inner"><h1>Appointment booking</h1><p>The booking page is being developed by the group. This button is a placeholder and does not create an appointment.</p><a class="button" href="index.php">Back to Home</a></main><?php footer_html();?>

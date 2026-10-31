@@ -1,0 +1,1 @@
+<?php require_once 'partials.php';header_html('Bloom Beauty | Beauty products');?><main class="inner"><h1>Beauty products</h1><p>The product shopping feature belongs to the group integration work and is not implemented in this individual module.</p><a class="button" href="index.php">Back to Home</a></main><?php footer_html();?>
